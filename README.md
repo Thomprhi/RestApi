@@ -3,7 +3,41 @@ Anais Thompson
 Client-Server architecture 
 
 W1996867  
+Requirements
+Java JDK 17
+Apache Maven 3.8 or later
+Netbeans IDE (optional)
 
+This API usses and embedded grizzly server
+
+Open a terminal in the projet folder and run:
+mvn clean package
+then:
+mvn exec:java
+
+If using Netbeans:
+Open project in Netbeans
+Right click Main.java
+Select run file
+
+The server will be lsitening on https://localhost:8080/
+The Rest API can be found at https://locahost:8080/api/v1
+
+curl commands
+curl -X GET https://localhost:8080/api/v1/workspaces
+
+curl -X DELETE https://localhost:8080/api/v1/workspaces/WS-VISION-05
+
+curl -X GET http://localhost:8080/api/v1/workspaces/WS-VISION-01
+
+curl -X POST http://localhost:8080/api/v1/workspaces \
+-H "Content-Type: application/json" \
+-d "{\"id\":\"WS-VISION-02\",\"teamName\":\"AI Lab\",\"storageQuotaGb\":200,\"modelIds\":[\"MOD-001\",\"MOD-002\"]}"
+
+curl -X DELETE http://localhost:8080/api/v1/workspaces/WS-VISION-02
+
+
+Report
 Q1. When returning a Java object from a method, it is automatically serialised into 
 JSON. Explain the role of a MessageBodyWriter or a JSON provider (like Jackson) in this con- 
 version process. 
